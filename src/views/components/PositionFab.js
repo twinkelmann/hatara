@@ -6,6 +6,16 @@ import { config } from '../../config'
 
 let watchId = -1
 
+function disableWatch()
+{
+  // TODO: implement own watch
+  navigator.geolocation.clearWatch(watchId)
+  store.watchPosition = false
+  store.lockToPosition = false
+  events.emit('message', 'Nous ne suivons plus votre position')
+  events.emit('stoppedWatching')
+}
+
 function enableWatch()
 {
   watchId = navigator.geolocation.watchPosition(position =>
@@ -15,12 +25,11 @@ function enableWatch()
     events.emit('updateUserPosition', position)
   }, e =>
   {
-    store.watchPosition = false
-    store.lockToPosition = false
     events.emit('message', geolocationMessages[e.code])
+    disableWatch()
   }, {
     enableHighAccuracy: true,
-    timeout: 10000
+    timeout: 15000
   })
 }
 
@@ -28,12 +37,7 @@ export default {
   view: () => m(`[title=Suivre votre position sur la carte].fab.fab--bottom-right.shadow.no-select${store.hideInterface || store.fullscreen ? '.hidden' : ''}${store.watchPosition ? '.enabled' : ''}`, {
     onclick() {
       if (store.watchPosition) {
-        // TODO: implement own watch
-        navigator.geolocation.clearWatch(watchId)
-        store.watchPosition = false
-        store.lockToPosition = false
-        events.emit('message', 'Nous ne suivons plus votre position')
-        events.emit('stoppedWatching')
+        disableWatch()
         return
       }
 
