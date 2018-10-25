@@ -18,6 +18,10 @@ export default {
       ]
     })
 
+    const userLocation = L.marker([ 0, 0 ], { title: 'Votre position actuelle' }).addTo(map)
+    const userPrecision = L.circle([ 0, 0 ], { radius: 200 }).addTo(map)
+
+
     const header = document.getElementsByTagName('header')[0]
 
     const widthBreakpoint = 960
@@ -55,7 +59,10 @@ export default {
 
     events.on('updateUserPosition', position =>
     {
-      // TODO: update marker
+      const latLng = [ position.coords.latitude, position.coords.longitude ]
+      userLocation.setLatLng(latLng)
+      userPrecision.setLatLng(latLng)
+      userPrecision.setRadius(position.coords.accuracy / 2)
       
 
       if (store.lockToPosition) {
@@ -64,7 +71,7 @@ export default {
         map.off('zoomstart', actionStart)
 
         const zoomLevel = accuracyToZoomLevel(position.coords.accuracy, 8, 19)
-        map.setView([ position.coords.latitude, position.coords.longitude ], zoomLevel)
+        map.setView(latLng, zoomLevel)
 
         // wait before adding back the callbacks, because for some reason the zoom action doesn't happen immediatly
         setTimeout(() =>

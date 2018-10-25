@@ -20,6 +20,9 @@ function enableWatch()
     store.watchPosition = false
     store.lockToPosition = false
     events.emit('message', geolocationMessages[e.code])
+  }, {
+    enableHighAccuracy: true,
+    timeout: 10000
   })
 }
 

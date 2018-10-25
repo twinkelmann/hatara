@@ -27,14 +27,14 @@ header {
   }
 
   > .menu {
-    margin-left: $header-height / 2;
+    margin-left: $header-height / 5;
   }
 
   > .clear {
     opacity: 1;
     transition: opacity 200ms ease-in;
 
-    margin-right: $header-height / 2;
+    margin-right: $header-height / 5;
   }
 
   > input {

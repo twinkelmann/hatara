@@ -1,7 +1,7 @@
 @import '../../vars.scss';
 
 .sidebar {
-  position: fixed;
+  position: absolute;
   width: 100vw;
   min-height: 100vh;
   z-index: 999;
@@ -40,6 +40,27 @@
     &.sidebar-region--license {
       > .license-line {
         margin: $default-margin 0;
+
+        &.license-line--icon {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          > span {
+            font-size: 1.1em;
+          }
+
+          > .app-icon {
+            background-image: url('/favicon.svg');
+            background-size: contain;
+            $auto-size: 50vmin;
+            $max-size: 256px;
+            width: $auto-size;
+            height: $auto-size;
+            max-width: $max-size;
+            max-height: $max-size;
+          }
+        }
       }
     }
   }
