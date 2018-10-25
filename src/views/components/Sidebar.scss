@@ -19,12 +19,28 @@
 
   > .sidebar-region {
     width: 100%;
-    
+
     > h2 {
-      
+      margin-top: $default-margin;
     }
 
     &.sidebar-region--config {
+
+      > .config-line {
+        margin: $default-margin 0;
+        display: flex;
+        justify-content: space-between;
+
+        > .config-text {
+          margin-right: $default-margin;
+        }
+      }
+    }
+
+    &.sidebar-region--license {
+      > .license-line {
+        margin: $default-margin 0;
+      }
     }
   }
 }

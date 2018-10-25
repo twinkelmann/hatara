@@ -8,13 +8,15 @@ const defaultConfig = {
  */
 export const config = JSON.parse(JSON.stringify(defaultConfig))
 
-export function storeConfigOnDisk()
+export function writeConfig()
 {
+  console.log('Writing config to local storage...')
   localStorage.setItem('config', JSON.stringify(config))
 }
 
-export function tryLoadConfigFromDisk()
+export function tryReadConfig()
 {
+  console.log('Trying to get config from local storage...')
   const onDisk = localStorage.getItem('config')
 
   try {

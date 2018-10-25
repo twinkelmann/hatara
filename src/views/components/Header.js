@@ -9,10 +9,10 @@ export default {
     m('.menu.material-icons.no-select', {
       onclick: () => store.showMenu = !store.showMenu
     }, store.showMenu ? 'arrow_back' : 'menu'),
-    m(`input[type=text][autofocus][placeholder=${'Parcourir le monde'}]`, {
+    m(`input[type=text][autofocus][disabled=${store.dialog.show ? 'disabled' : ''}][placeholder=${'Parcourir le monde'}]`, {
       value: store.query,
       onkeypress(e) {
-        store.query = this.value
+        store.query = String(this.value)
 
         if(e.key !== 'Enter') return
         if (this.value === null || this.value === undefined || this.value === '') return

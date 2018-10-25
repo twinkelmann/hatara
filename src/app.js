@@ -1,11 +1,11 @@
 import m from 'mithril'
 
 import Home from './views/pages/Home'
-import { tryLoadConfigFromDisk } from './config'
+import { tryReadConfig } from './config'
 
 function main()
 {
-  tryLoadConfigFromDisk()
+  tryReadConfig()
   const root = document.getElementById('app')
 
   m.mount(root, Home)

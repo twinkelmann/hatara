@@ -18,6 +18,7 @@ function enableWatch()
   }, e =>
   {
     store.watchPosition = false
+    store.lockToPosition = false
     events.emit('message', geolocationMessages[e.code])
   })
 }
@@ -29,6 +30,7 @@ export default {
         // TODO: implement own watch
         navigator.geolocation.clearWatch(watchId)
         store.watchPosition = false
+        store.lockToPosition = false
         events.emit('message', 'Nous ne suivons plus votre position')
         return
       }

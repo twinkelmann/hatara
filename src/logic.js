@@ -29,7 +29,7 @@ export const store = {
     accept: 'Accept'
   },
   watchPosition: false,
-  lockToPosition: true,
+  lockToPosition: false,
   showMenu: false
 }
 
@@ -53,6 +53,8 @@ events.on('getQuery', async () =>
   const nameParts = res[0].display_name.split(', ').filter((part, i, array) => i === 0 || i === array.length - 2 || i === array.length - 1)
 
   store.query = nameParts.join(', ')
+  // make sure to hide the menu
+  store.showMenu = false
   m.redraw()
 })
 
