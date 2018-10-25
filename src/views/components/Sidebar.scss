@@ -1,0 +1,30 @@
+@import '../../vars.scss';
+
+.sidebar {
+  position: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 999;
+  left: 0;
+  padding: $default-margin;
+  padding-top: $default-margin * 2 + $header-height;
+
+  background-color: $primary-color;
+
+  transition: left 100ms ease-out;
+
+  &.hidden {
+    left: -100vw;
+  }
+
+  > .sidebar-region {
+    width: 100%;
+    
+    > h2 {
+      
+    }
+
+    &.sidebar-region--config {
+    }
+  }
+}

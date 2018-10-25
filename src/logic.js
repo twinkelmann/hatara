@@ -29,7 +29,8 @@ export const store = {
     accept: 'Accept'
   },
   watchPosition: false,
-  lockToPosition: true
+  lockToPosition: true,
+  showMenu: false
 }
 
 events.on('getQuery', async () =>

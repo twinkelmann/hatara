@@ -8,7 +8,7 @@ import { geolocationMessages } from '../../utils'
 let watchId = -1
 
 export default {
-  view: () => m(`.fab.fab--bottom-right.shadow.no-select${store.hideInterface || store.fullscreen ? '.hidden' : ''}${store.watchPosition ? '.enabled' : ''}`, {
+  view: () => m(`[title=Suivre votre position sur la carte].fab.fab--bottom-right.shadow.no-select${store.hideInterface || store.fullscreen ? '.hidden' : ''}${store.watchPosition ? '.enabled' : ''}`, {
     onclick() {
       if (store.watchPosition) {
         navigator.geolocation.clearWatch(watchId)

@@ -1,13 +1,14 @@
 @import '../../vars.scss';
 
 .fab {
+  cursor: pointer;
   position: fixed;
   width: $fab-size;
   height: $fab-size;
   border-radius: 100%;
   background-color: $primary-color;
   color: $dark-grey;
-  z-index: 1000;
+  z-index: 998;
 
   &.fab--bottom-right {
     bottom: $default-margin;

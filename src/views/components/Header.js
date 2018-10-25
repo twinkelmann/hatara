@@ -6,7 +6,9 @@ import './Header.scss'
 
 export default {
   view: vnode => m(`header.shadow${store.inputHasFocus ? '.active' : ''}${store.hideInterface || store.fullscreen ? '.hidden' : ''}`,
-    m('.menu.material-icons.no-select', 'menu'),
+    m('.menu.material-icons.no-select', {
+      onclick: () => store.showMenu = !store.showMenu
+    }, store.showMenu ? 'arrow_back' : 'menu'),
     m(`input[type=text][autofocus][placeholder=${'Parcourir le monde'}]`, {
       value: store.query,
       onkeypress(e) {

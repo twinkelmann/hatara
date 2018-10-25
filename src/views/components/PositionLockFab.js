@@ -5,7 +5,7 @@ import './Fab.scss'
 import { store, events } from '../../logic'
 
 export default {
-  view: () => m(`.fab.fab--middle-right.shadow.no-select${store.hideInterface || store.fullscreen || !store.watchPosition ? '.hidden' : ''}${store.lockToPosition ? '.enabled' : ''}`, {
+  view: () => m(`[title=Déplacer la carte selon votre position].fab.fab--middle-right.shadow.no-select${store.hideInterface || store.fullscreen || !store.watchPosition ? '.hidden' : ''}${store.lockToPosition ? '.enabled' : ''}`, {
     onclick() {
       store.lockToPosition = !store.lockToPosition
 

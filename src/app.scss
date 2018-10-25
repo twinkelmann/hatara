@@ -29,3 +29,66 @@
   -moz-user-select: none;
   -webkit-user-select: none;
 }
+
+/**
+  Custom Checkbox
+**/
+$transition-speed: 200ms;
+$size: 34px;
+$circle-margin: 4px;
+$circle-size: $size - 2 * $circle-margin;
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: $size;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: $transition-speed;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: $circle-size;
+  width: $circle-size;
+  left: $circle-margin;
+  bottom: $circle-margin;
+  background-color: white;
+  transition: $transition-speed;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX($circle-size);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: $size;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
