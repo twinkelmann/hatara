@@ -1,7 +1,5 @@
 import m from 'mithril'
 
-import './Fab.scss'
-
 import { store, events } from '../../logic'
 import { geolocationMessages } from '../../utils'
 import { config } from '../../config'

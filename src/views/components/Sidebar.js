@@ -1,7 +1,5 @@
 import m from 'mithril'
 
-import './Sidebar.scss'
-
 import { store } from '../../logic'
 import { config, writeConfig } from '../../config'
 

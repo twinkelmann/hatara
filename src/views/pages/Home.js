@@ -1,7 +1,5 @@
 import m from 'mithril'
 
-import './Home.scss'
-
 import Header from '../components/Header'
 import LeafletMap from '../components/LeafletMap'
 import PositionFab from '../components/PositionFab'

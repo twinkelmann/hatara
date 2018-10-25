@@ -1,5 +1,3 @@
-@import '../../vars.scss';
-
 .sidebar {
   position: absolute;
   width: 100vw;
@@ -51,7 +49,7 @@
           }
 
           > .app-icon {
-            background-image: url('/favicon.svg');
+            background-image: url('favicon.svg');
             background-size: contain;
             $auto-size: 50vmin;
             $max-size: 256px;

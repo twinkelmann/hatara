@@ -18,11 +18,16 @@ export default {
       ]
     })
 
-    const userLocation = L.marker([ 0, 0 ], { title: 'Votre position actuelle' }).addTo(map)
-    const userPrecision = L.circle([ 0, 0 ], { radius: 200 }).addTo(map)
-
-
-    const header = document.getElementsByTagName('header')[0]
+    // position marker
+    const userPosition = L.marker([ 0, 0 ], {
+      title: 'Votre position actuelle',
+      opacity: 0
+    }).addTo(map)
+    
+    // precision circle around the marker
+    const userPrecision = L.circle([ 0, 0 ], {
+      radius: 1,
+    }).addTo(map)
 
     const widthBreakpoint = 960
     const heightBreakpoint = 500
@@ -54,13 +59,15 @@ export default {
 
     events.on('fitBounds', bounds =>
     {
+      // position lock is automatically disabled because we trigger the map movement callbacks
       map.fitBounds(bounds)
     })
 
     events.on('updateUserPosition', position =>
     {
       const latLng = [ position.coords.latitude, position.coords.longitude ]
-      userLocation.setLatLng(latLng)
+      userPosition.setLatLng(latLng)
+      userPosition.setOpacity(1)
       userPrecision.setLatLng(latLng)
       userPrecision.setRadius(position.coords.accuracy / 2)
       

@@ -2,8 +2,6 @@ import m from 'mithril'
 
 import { events, store } from '../../logic'
 
-import './Header.scss'
-
 export default {
   view: vnode => m(`header.shadow${store.inputHasFocus ? '.active' : ''}${store.hideInterface || store.fullscreen ? '.hidden' : ''}`,
     m('.menu.material-icons.no-select', {

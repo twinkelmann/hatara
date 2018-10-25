@@ -1,4 +1,12 @@
 @import './material-icons.scss';
+@import './vars.scss';
+
+@import './views/components/Dialog.scss';
+@import './views/components/Fab.scss';
+@import './views/components/Header.scss';
+@import './views/components/Messages.scss';
+@import './views/components/Sidebar.scss';
+@import './views/pages/Home.scss';
 
 * {
   margin: 0;

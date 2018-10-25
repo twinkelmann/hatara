@@ -1,6 +1,5 @@
 import m from 'mithril'
 
-import './Dialog.scss'
 import { store, events } from '../../logic'
 
 export default {

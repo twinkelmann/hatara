@@ -1,7 +1,5 @@
 import m from 'mithril'
 
-import './Messages.scss'
-
 import { store } from '../../logic';
 
 export default {
