@@ -66,9 +66,14 @@ export default {
         const zoomLevel = accuracyToZoomLevel(position.coords.accuracy, 8, 19)
         map.setView([ position.coords.latitude, position.coords.longitude ], zoomLevel)
 
-        // trigger the callback again next time
-        map.on('movestart', actionStart)
-        map.on('zoomstart', actionStart)
+        // wait before adding back the callbacks, because for some reason the zoom action doesn't happen immediatly
+        setTimeout(() =>
+        {
+          // trigger the callback again next time
+          map.on('movestart', actionStart)
+          map.on('zoomstart', actionStart)
+        }, 100)
+
       }
     })
   },
