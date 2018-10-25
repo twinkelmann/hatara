@@ -1,0 +1,45 @@
+@import '../../vars.scss';
+
+.fab {
+  position: fixed;
+  width: $fab-size;
+  height: $fab-size;
+  border-radius: 100%;
+  background-color: $primary-color;
+  color: $dark-grey;
+  z-index: 1000;
+
+  &.fab--bottom-right {
+    bottom: $default-margin;
+    right: $default-margin;
+
+    transition: bottom 100ms ease-in;
+
+    &.hidden {
+      bottom: -$fab-size;
+    }
+  }
+
+  &.fab--middle-right {
+    bottom: $default-margin * 2 + $fab-size;
+    right: $default-margin;
+
+    transition: right 100ms ease-in;
+
+    &.hidden {
+      right: -$fab-size;
+    }
+  }
+
+  &.enabled {
+    background-color: $accent-color;
+    color: $primary-color;
+  }
+
+  > .material-icons {
+    width: $fab-size;
+    height: $fab-size;
+    text-align: center;
+    line-height: $fab-size;
+  }
+}

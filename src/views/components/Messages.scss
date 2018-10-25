@@ -1,0 +1,22 @@
+@import '../../vars.scss';
+
+$small-margin: 2px;
+
+.messages-container {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  bottom: $fab-size + $default-margin + $small-margin;
+  z-index: 999;
+
+  .message-element {
+    max-width: 80%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: $default-margin / 2 $default-margin;
+    margin: $small-margin 0;
+    border-radius: $default-radius;
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,68 @@
+@import '../../vars.scss';
+
+.dialog-wrapper {
+  z-index: 1100;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+
+  background-color: rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > .dialog-box {
+    width: 90%;
+    max-width: 500px;
+    max-height: 90%;
+    background-color: $primary-color;
+    padding: $default-margin;
+    border-radius: $default-radius;
+
+    display: flex;
+    flex-direction: column;
+
+    > .dialog-row {
+      width: 100%;
+      margin: 8px 0;
+
+      &.dialog-row--title {
+        text-align: center;
+        font-weight: bold;
+      }
+
+      &.dialog-row--options {
+        display: flex;
+        margin-bottom: 0;
+
+        > .dialog-option {
+          flex-grow: 1;
+          display: inline-block;
+          text-align: center;
+          padding: 16px 8px;
+          margin: 0 8px;
+          border-radius: $default-radius;
+          transition: box-shadow 200ms ease-out;
+
+          &:hover {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+          }
+
+          &:active {
+            box-shadow: none;
+          }
+
+          &.dialog-option--dismiss {
+            background-color: $dismiss-color;
+          }
+
+          &.dialog-option--accept {
+            background-color: $accept-color;
+          }
+        }
+      }
+    }
+  }
+}

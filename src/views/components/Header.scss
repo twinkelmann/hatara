@@ -1,0 +1,56 @@
+@import '../../vars.scss';
+
+header {
+  position: fixed;
+  top: 0;
+  transition: top 100ms ease-in, box-shadow 250ms ease-out;
+  width: calc(100% - #{2 * $default-margin});
+  max-width: 960px;
+  z-index: 1000;
+  margin: $default-margin;
+  height: $header-height;
+  background-color: $primary-color;
+  border-radius: $header-height;
+
+  display: flex;
+  flex-direction: row;
+
+  > .menu,
+  > .clear {
+    width: $header-height;
+    height: $header-height;
+    line-height: $header-height;
+    text-align: center;
+    color: $light-grey;
+
+    cursor: pointer;
+  }
+
+  > .menu {
+    margin-left: $header-height / 2;
+  }
+
+  > .clear {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+
+    margin-right: $header-height / 2;
+  }
+
+  > input {
+    height: 100%;
+    outline: none;
+    border: none;
+    appearance: none;
+    background-color: transparent;
+    flex-grow: 1;
+  }
+
+  &.hidden {
+    top: -$header-height - $default-margin - 2px;
+  }
+
+  &.active {
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.15);
+  }
+}
