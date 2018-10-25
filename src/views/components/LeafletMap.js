@@ -54,14 +54,13 @@ export default {
       store.lockToPosition = false
 
       // hide the interface
-      if (window.innerWidth > widthBreakpoint && window.innerHeight > heightBreakpoint) return
+      if (window.innerWidth > widthBreakpoint && window.innerHeight > heightBreakpoint) return m.redraw()
       store.hideInterface = true
       m.redraw()
     }
 
     function actionEnd()
     {
-
       // show the interface
       if (window.innerWidth > widthBreakpoint && window.innerHeight > heightBreakpoint) return
       store.hideInterface = false
