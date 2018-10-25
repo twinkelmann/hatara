@@ -11,22 +11,38 @@ export default {
       zoom: 2,
       zoomControl: false,
       attributionControl: false,
-      layers: [
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        })
-      ]
+      layers: [ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png') ]
+    })
+
+    function moveMap(latLng, accuracy)
+    {
+      const zoomLevel = accuracyToZoomLevel(accuracy, 8, 19)
+      map.setView(latLng, zoomLevel)
+    }
+
+    const ICON_SIZE = 32
+
+    const userIcon = L.icon({
+        iconUrl: 'user-location.svg',
+        iconSize: [ ICON_SIZE, ICON_SIZE ],
+        popupAnchor: [ 0, -ICON_SIZE / 2 ]
     })
 
     // position marker
     const userPosition = L.marker([ 0, 0 ], {
-      title: 'Votre position actuelle',
-      opacity: 0
+      title: 'Votre position',
+      opacity: 0,
+      icon: userIcon
     }).addTo(map)
+
+    // move to the marker position on click
+    userPosition.on('click', () => moveMap([ store.lastUserPosition.coords.latitude, store.lastUserPosition.coords.longitude ], store.lastUserPosition.coords.accuracy))
     
     // precision circle around the marker
     const userPrecision = L.circle([ 0, 0 ], {
-      radius: 1,
+      radius: 0,
+      opacity: 0.5,
+      weight: 2
     }).addTo(map)
 
     const widthBreakpoint = 960
@@ -63,11 +79,18 @@ export default {
       map.fitBounds(bounds)
     })
 
+    events.on('stoppedWatching', () =>
+    {
+      userPosition.setOpacity(0.7)
+      userPosition.bindPopup('Votre dernière position connue')
+    })
+
     events.on('updateUserPosition', position =>
     {
       const latLng = [ position.coords.latitude, position.coords.longitude ]
       userPosition.setLatLng(latLng)
       userPosition.setOpacity(1)
+      userPosition.bindPopup(userPosition.options.title)
       userPrecision.setLatLng(latLng)
       userPrecision.setRadius(position.coords.accuracy / 2)
       
@@ -77,8 +100,7 @@ export default {
         map.off('movestart', actionStart)
         map.off('zoomstart', actionStart)
 
-        const zoomLevel = accuracyToZoomLevel(position.coords.accuracy, 8, 19)
-        map.setView(latLng, zoomLevel)
+        moveMap(latLng, position.coords.accuracy)
 
         // wait before adding back the callbacks, because for some reason the zoom action doesn't happen immediatly
         setTimeout(() =>

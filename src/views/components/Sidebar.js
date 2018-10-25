@@ -22,7 +22,7 @@ export default {
             }),
             m('span.slider.round')))),
       m('.config-line',
-        m('label.config-text', "Center sur la position lors de l'activation du suivi"),
+        m('label.config-text', "Centrer sur la position lors de l'activation du suivi"),
         m('div',
           m('label.switch',
             m('input[type=checkbox]', {

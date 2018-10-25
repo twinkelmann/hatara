@@ -33,6 +33,7 @@ export default {
         store.watchPosition = false
         store.lockToPosition = false
         events.emit('message', 'Nous ne suivons plus votre position')
+        events.emit('stoppedWatching')
         return
       }
 

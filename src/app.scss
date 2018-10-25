@@ -100,3 +100,12 @@ input:checked + .slider:before {
 .slider.round::before {
   border-radius: 50%;
 }
+
+.user-location-icon {
+  /*
+  mask-image: url('user-location.svg');
+  mask-size: contain;
+  */
+  background-color: #2196F3;
+  z-index: 1000 !important;
+}
