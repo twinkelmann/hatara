@@ -13,5 +13,8 @@
   "parameter-description-ask-before-watching-position": "あなたの位置にアクセスする前に常に尋ねる",
   "parameter-description-move-to-position-on-watch": "それを見始めるときにあなたの位置を地図の中心にする",
   "parameter-description-language": "インタフェース言語",
-  "hatara-meaning": "ワーキング"
+  "hatara-meaning": "ワーキング",
+  "geolocation-error-denied": "あなたのブラウザは私たちがあなたの立場にアクセスするのを拒否しました",
+  "geolocation-error-unavaiable": "現在の端末でジオロケーションを使用できません",
+  "geolocation-error-timeout": "あなたの立場は長すぎて見つからない"
 }

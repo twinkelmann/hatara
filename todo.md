@@ -1,0 +1,3 @@
+- Réouvrir la carte la ou je l'avais laissée
+- Coordonées dans l'url
+- Recherche dans l'url

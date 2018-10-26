@@ -82,6 +82,7 @@ export default {
     events.on('stoppedWatching', () =>
     {
       userPosition.setOpacity(0.7)
+      // TODO: translate this when langauge changes
       userPosition.bindPopup(ts('last-known-position'))
     })
 

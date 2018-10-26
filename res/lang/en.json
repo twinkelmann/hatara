@@ -13,5 +13,8 @@
   "parameter-description-ask-before-watching-position": "Always ask before accessing your position",
   "parameter-description-move-to-position-on-watch": "Center the map on your position when starting to watch it",
   "parameter-description-language": "Interface language",
-  "hatara-meaning": "work"
+  "hatara-meaning": "work",
+  "geolocation-error-denied": "Your browser refused to give us access to your position",
+  "geolocation-error-unavailable": "Geolocation is not available on your current device",
+  "geolocation-error-timeout": "It took too long to get your position"
 }

@@ -10,7 +10,6 @@ let watchId = -1
 
 function disableWatch()
 {
-  // TODO: implement own watch
   navigator.geolocation.clearWatch(watchId)
   store.watchPosition = false
   store.lockToPosition = false
@@ -27,7 +26,7 @@ function enableWatch()
     events.emit('updateUserPosition', position)
   }, e =>
   {
-    events.emit('message', geolocationMessages[e.code])
+    events.emit('message', ts(geolocationMessages[e.code]))
     disableWatch()
   }, {
     enableHighAccuracy: true,

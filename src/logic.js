@@ -2,7 +2,8 @@ import m from 'mithril'
 
 import hotkeys from 'hotkeys-js'
 import { EventEmitter } from 'events'
-import { queryNominatim } from './utils'
+import { queryNominatim, nominatimToLeafletBounds } from './utils'
+import { locale } from './i18n'
 
 const MESSAGE_DISPLAY_TIME = 5000
 
@@ -30,32 +31,35 @@ export const store = {
   },
   watchPosition: false,
   lockToPosition: false,
-  showMenu: false
+  showMenu: false,
+  /**
+   * @type {{display_name: string, boundingbox: string[]}}
+   */
+  nominatimResponses: []
 }
 
 events.on('getQuery', async () =>
 {
-  const res = await queryNominatim(store.query)
+  const res = await queryNominatim(store.query, locale)
   // TODO: show all results in dropdown
 
   if (res.length === 0) {
     events.emit('message', `Aucun résultat pour "${store.query}"`)
+    store.nominatimResponses = []
     return
   }
 
-  const bounds = res[0].boundingbox.map(parseFloat)
+  // store all responses and load the first one
+  store.nominatimResponses = res
+  events.emit('fitBounds', nominatimToLeafletBounds(res[0]))
+  // TODO: better name
+  // const nameParts = res[0].display_name.split(', ').filter((part, i, array) => i === 0 || i === array.length - 2 || i === array.length - 1)
+  store.query = res[0].display_name  // nameParts.join(', ')
 
-  events.emit('fitBounds', [
-    [ bounds[0], bounds[2] ],
-    [ bounds[1], bounds[3] ]
-  ])
-
-  const nameParts = res[0].display_name.split(', ').filter((part, i, array) => i === 0 || i === array.length - 2 || i === array.length - 1)
-
-  store.query = nameParts.join(', ')
   // make sure to hide the menu
   store.showMenu = false
   m.redraw()
+  console.log(store.inputHasFocus)
 })
 
 events.on('message', message =>
