@@ -13,5 +13,8 @@
   "parameter-description-ask-before-watching-position": "Toujours demander confirmation avant d'accéder à votre position",
   "parameter-description-move-to-position-on-watch": "Centrer sur votre position lors de l'activation du suivi",
   "parameter-description-language": "Langue de l'interface",
-  "hatara-meaning": "le travail"
+  "hatara-meaning": "le travail",
+  "geolocation-error-denied": "Votre navigateur nous a refusé l'accès à votre position",
+  "geolocation-error-unavaiable": "La géolocalisation n'est pas disponible sur votre périphérique actuel",
+  "geolocation-error-timeout": "Votre position a mis trop de temps à être récupérée"
 }
