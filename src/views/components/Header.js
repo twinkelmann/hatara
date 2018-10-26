@@ -2,12 +2,14 @@ import m from 'mithril'
 
 import { events, store } from '../../logic'
 
+import { ts } from '../../i18n'
+
 export default {
   view: vnode => m(`header.shadow${store.inputHasFocus ? '.active' : ''}${store.hideInterface || store.fullscreen ? '.hidden' : ''}`,
     m('.menu.material-icons.no-select', {
       onclick: () => store.showMenu = !store.showMenu
     }, store.showMenu ? 'arrow_back' : 'menu'),
-    m(`input[type=text][autofocus][disabled=${store.dialog.show ? 'disabled' : ''}][placeholder=${'Parcourir le monde'}]`, {
+    m(`input[type=text][autofocus][disabled=${store.dialog.show ? 'disabled' : ''}][placeholder=${ts('query-placeholder')}]`, {
       value: store.query,
       onkeypress(e) {
         store.query = String(this.value)

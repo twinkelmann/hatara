@@ -1,0 +1,17 @@
+{
+  "query-placeholder": "Parcourir le monde",
+  "last-known-position": "Votre dernière position connue",
+  "current-position": "Votre position",
+  "position-watch-disabled": "Nous ne suivons plus votre position",
+  "watch-position-tooltip": "Suivre votre position sur la carte",
+  "position-dialog-title": "Suivre la position",
+  "position-dialog-content": "Nous autorisez-vous à suivre votre position ? Vous pouvez désactiver cette alerte dans les paramètres.",
+  "position-dialog-accept": "Oui",
+  "position-dialog-dismiss": "Annuler",
+  "lock-position-tooltip": "Déplacer la carte selon votre position",
+  "parameters-region-title": "Paramètres",
+  "parameter-description-ask-before-watching-position": "Toujours demander confirmation avant d'accéder à votre position",
+  "parameter-description-move-to-position-on-watch": "Centrer sur votre position lors de l'activation du suivi",
+  "parameter-description-language": "Langue de l'interface",
+  "hatara-meaning": "le travail"
+}

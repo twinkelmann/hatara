@@ -2,8 +2,10 @@ import m from 'mithril'
 
 import { store, events } from '../../logic'
 
+import { ts } from '../../i18n'
+
 export default {
-  view: () => m(`[title=Déplacer la carte selon votre position].fab.fab--middle-right.shadow.no-select${store.hideInterface || store.fullscreen || !store.watchPosition ? '.hidden' : ''}${store.lockToPosition ? '.enabled' : ''}`, {
+  view: () => m(`[title=${ts('lock-position-tooltip')}].fab.fab--middle-right.shadow.no-select${store.hideInterface || store.fullscreen || !store.watchPosition ? '.hidden' : ''}${store.lockToPosition ? '.enabled' : ''}`, {
     onclick() {
       store.lockToPosition = !store.lockToPosition
 

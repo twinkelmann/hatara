@@ -3,6 +3,8 @@ import m from 'mithril'
 import { events, store } from '../../logic'
 import { accuracyToZoomLevel } from '../../utils'
 
+import { ts } from '../../i18n'
+
 export default {
   oncreate: ({ dom }) =>
   {
@@ -30,7 +32,6 @@ export default {
 
     // position marker
     const userPosition = L.marker([ 0, 0 ], {
-      title: 'Votre position',
       opacity: 0,
       icon: userIcon
     }).addTo(map)
@@ -81,7 +82,7 @@ export default {
     events.on('stoppedWatching', () =>
     {
       userPosition.setOpacity(0.7)
-      userPosition.bindPopup('Votre dernière position connue')
+      userPosition.bindPopup(ts('last-known-position'))
     })
 
     events.on('updateUserPosition', position =>
@@ -89,7 +90,7 @@ export default {
       const latLng = [ position.coords.latitude, position.coords.longitude ]
       userPosition.setLatLng(latLng)
       userPosition.setOpacity(1)
-      userPosition.bindPopup(userPosition.options.title)
+      userPosition.bindPopup(ts('current-position'))
       userPrecision.setLatLng(latLng)
       userPrecision.setRadius(position.coords.accuracy / 2)
       

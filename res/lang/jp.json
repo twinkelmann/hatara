@@ -1,0 +1,17 @@
+{
+  "query-placeholder": "世界を検索",
+  "last-known-position": "あなたの最後の知られている位置",
+  "current-position": "あなたの現在のポジション",
+  "position-watch-disabled": "私たちはあなたの立場を見守った",
+  "watch-position-tooltip": "地図上のあなたの位置を見る",
+  "position-dialog-title": "あなたの立場を見て",
+  "position-dialog-content": "あなたの立場を見守ることができますか？ パラメータでこの警告を無効にすることができます。",
+  "position-dialog-accept": "はい",
+  "position-dialog-dismiss": "キャンセル",
+  "lock-position-tooltip": "あなたの位置に地図を移動する",
+  "parameters-region-title": "パラメーター",
+  "parameter-description-ask-before-watching-position": "あなたの位置にアクセスする前に常に尋ねる",
+  "parameter-description-move-to-position-on-watch": "それを見始めるときにあなたの位置を地図の中心にする",
+  "parameter-description-language": "インタフェース言語",
+  "hatara-meaning": "ワーキング"
+}

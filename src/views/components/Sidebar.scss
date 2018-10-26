@@ -31,10 +31,17 @@
       > .config-line {
         margin: $default-margin 0;
         display: flex;
-        justify-content: space-between;
 
         > .config-text {
-          margin-right: $default-margin;
+          margin-right: auto;
+        }
+
+        > .reset-language {
+          $size: 34px;
+          width: $size;
+          height: $size;
+          line-height: $size;
+          text-align: center;
         }
       }
     }

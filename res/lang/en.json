@@ -1,0 +1,17 @@
+{
+  "query-placeholder": "Search the world",
+  "last-known-position": "Your last known position",
+  "current-position": "Your current position",
+  "position-watch-disabled": "We stopped watching your position",
+  "watch-position-tooltip": "Watch your position on the map",
+  "position-dialog-title": "Watching your position",
+  "position-dialog-content": "Would you allow us to watch your position ? You can disable this warning in the parameters.",
+  "position-dialog-accept": "Yes",
+  "position-dialog-dismiss": "Cancel",
+  "lock-position-tooltip": "Move the map to your position",
+  "parameters-region-title": "Parameters",
+  "parameter-description-ask-before-watching-position": "Always ask before accessing your position",
+  "parameter-description-move-to-position-on-watch": "Center the map on your position when starting to watch it",
+  "parameter-description-language": "Interface language",
+  "hatara-meaning": "work"
+}

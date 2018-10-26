@@ -4,6 +4,8 @@ import { store, events } from '../../logic'
 import { geolocationMessages } from '../../utils'
 import { config } from '../../config'
 
+import { ts } from '../../i18n'
+
 let watchId = -1
 
 function disableWatch()
@@ -12,7 +14,7 @@ function disableWatch()
   navigator.geolocation.clearWatch(watchId)
   store.watchPosition = false
   store.lockToPosition = false
-  events.emit('message', 'Nous ne suivons plus votre position')
+  events.emit('message', ts('position-watch-disabled'))
   events.emit('stoppedWatching')
 }
 
@@ -34,7 +36,7 @@ function enableWatch()
 }
 
 export default {
-  view: () => m(`[title=Suivre votre position sur la carte].fab.fab--bottom-right.shadow.no-select${store.hideInterface || store.fullscreen ? '.hidden' : ''}${store.watchPosition ? '.enabled' : ''}`, {
+  view: () => m(`[title=${ts('watch-position-tooltip')}].fab.fab--bottom-right.shadow.no-select${store.hideInterface || store.fullscreen ? '.hidden' : ''}${store.watchPosition ? '.enabled' : ''}`, {
     onclick() {
       if (store.watchPosition) {
         disableWatch()
@@ -46,10 +48,10 @@ export default {
 
       if (config.askBeforeWatchingPosition) {
         store.dialog.show = true
-        store.dialog.title = 'Suivre la position'
-        store.dialog.content = 'Nous autorisez-vous à suivre votre position ?<br>Vous pouvez désactiver cette alerte dans les paramètres.'
-        store.dialog.accept = 'Oui'
-        store.dialog.dismiss = 'Annuler'
+        store.dialog.title = ts('position-dialog-title')
+        store.dialog.content = ts('position-dialog-content')
+        store.dialog.accept = ts('position-dialog-accept')
+        store.dialog.dismiss = ts('position-dialog-dismiss')
         m.redraw()
         events.once('dialogAccepted', enableWatch)
         events.once('dialogDismissed', () => store.watchPosition = false)

@@ -1,6 +1,8 @@
 const defaultConfig = {
   moveToPositionOnWatch: true,
-  askBeforeWatchingPosition: true
+  askBeforeWatchingPosition: true,
+  locale: 'en',
+  forceLocale: false
 }
 
 /**
