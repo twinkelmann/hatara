@@ -1,19 +1,23 @@
 .sidebar {
-  position: absolute;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  position: absolute;
+  overflow-y: auto;
   z-index: 999;
   left: 0;
-  padding: $default-margin;
-  padding-top: $default-margin * 2 + $header-height;
-
-  background-color: $primary-color;
 
   transition: left 100ms ease-out;
 
   &.hidden {
     left: -100vw;
   }
+
+  width: 100%;
+  min-height: 100%;
+  padding: $default-margin;
+  padding-top: $default-margin * 2 + $header-height;
+
+  background-color: $primary-color;
 
   > .sidebar-region {
     width: 100%;
